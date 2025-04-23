@@ -1,0 +1,7 @@
+fr/univrouen/rss25sb/model/TestRSS.class
+fr/univrouen/rss25sb/model/Item.class
+fr/univrouen/rss25sb/controllers/GetController.class
+fr/univrouen/rss25sb/Rss25SbApplication.class
+fr/univrouen/rss25sb/ServletInitializer.class
+fr/univrouen/rss25sb/controllers/IndexController.class
+fr/univrouen/rss25sb/controllers/PostController.class
