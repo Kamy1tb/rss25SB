@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'Accueil</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Lien vers le fichier CSS -->
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Xml</a></li>
+        <li><a href="#">Html</a></li>
+        <li><a href="#">Insertion</a></li>
+        <li><a href="#">Help</a></li>
+    </ul>
+</nav>
+
+<!-- Contenu principal -->
+<div class="container">
+    <h1>Bienvenue sur la page d'accueil du projet</h1>
+    <p><strong>Nom du projet :</strong> <span th:text="${projectName}"></span></p>
+    <p><strong>Numéro de version :</strong> <span th:text="${version}"></span></p>
+    <p><strong>Développeur :</strong> <span th:text="${developer}"></span></p>
+    <img th:src="${universityLogo}" alt="Logo Université de Rouen" />
+
+    <footer>
+        <p>&copy; 2025 Mon Projet Web. Tous droits réservés.</p>
+    </footer>
+</div>
+
+</body>
+</html>

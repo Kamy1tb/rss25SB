@@ -1,5 +1,6 @@
 /home/m1info-gil/taibikam/rss25SB/src/main/java/fr/univrouen/rss25sb/Rss25SbApplication.java
 /home/m1info-gil/taibikam/rss25SB/src/main/java/fr/univrouen/rss25sb/ServletInitializer.java
+/home/m1info-gil/taibikam/rss25SB/src/main/java/fr/univrouen/rss25sb/controllers/AppController.java
 /home/m1info-gil/taibikam/rss25SB/src/main/java/fr/univrouen/rss25sb/controllers/GetController.java
 /home/m1info-gil/taibikam/rss25SB/src/main/java/fr/univrouen/rss25sb/controllers/IndexController.java
 /home/m1info-gil/taibikam/rss25SB/src/main/java/fr/univrouen/rss25sb/controllers/PostController.java
