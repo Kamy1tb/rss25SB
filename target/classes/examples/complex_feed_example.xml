@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Complex RSS25 Feed Example
+  This example demonstrates a feed with multiple items and all optional elements.
+-->
+<feed xmlns="http://univ.fr/rss25" version="25" lang="fr">
+  <title>Exemple de flux RSS25 complet</title>
+  <pubDate>2025-05-25T12:00:00+02:00</pubDate>
+  <copyright>© 2025 Université de Rouen - Tous droits réservés</copyright>
+
+  <!-- Multiple links with different rel values -->
+  <link rel="self" type="application/xml" href="https://example.com/feeds/main"/>
+  <link rel="alternate" type="text/html" href="https://example.com/news"/>
+
+  <!-- Item 1: News article with image and HTML content -->
+  <item>
+    <guid>11111111-1111-1111-1111-111111111111</guid>
+    <title>Nouvelles avancées en intelligence artificielle</title>
+
+    <!-- Multiple categories -->
+    <category term="Technologie"/>
+    <category term="Intelligence Artificielle"/>
+    <category term="Recherche"/>
+
+    <published>2025-05-24T10:15:00+02:00</published>
+
+    <!-- Optional image element with real, accessible image -->
+    <image type="PNG" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Artificial_intelligence_prompt_engineering.jpg/640px-Artificial_intelligence_prompt_engineering.jpg" alt="Intelligence Artificielle" length="12345"/>
+
+    <!-- HTML content -->
+    <content type="html">
+      &lt;h1&gt;Nouvelles avancées en IA&lt;/h1&gt;
+      &lt;p&gt;Des chercheurs de l'Université de Rouen ont développé un nouveau modèle d'IA capable de comprendre des concepts complexes avec une précision sans précédent.&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Amélioration de 30% de la précision&lt;/li&gt;
+        &lt;li&gt;Réduction de 50% du temps d'apprentissage&lt;/li&gt;
+        &lt;li&gt;Applications potentielles dans la médecine et l'éducation&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+
+    <!-- Multiple authors with complete information -->
+    <author>
+      <name>Dr. Sophie Martin</name>
+      <email>sophie.martin@example.com</email>
+      <uri>https://example.com/researchers/sophie-martin</uri>
+    </author>
+    <author>
+      <name>Prof. Thomas Dubois</name>
+      <email>thomas.dubois@example.com</email>
+      <uri>https://example.com/researchers/thomas-dubois</uri>
+    </author>
+  </item>
+
+  <!-- Item 2: Blog post with updated date instead of published -->
+  <item>
+    <guid>22222222-2222-2222-2222-222222222222</guid>
+    <title>Réflexions sur l'éthique des données</title>
+    <category term="Éthique"/>
+    <category term="Données"/>
+
+    <!-- Using updated instead of published -->
+    <updated>2025-05-23T16:45:00+02:00</updated>
+
+    <content type="text">
+      Dans ce billet de blog, nous explorons les implications éthiques de la collecte et de l'utilisation des données personnelles dans la recherche scientifique.
+
+      Plusieurs questions se posent :
+      - Comment garantir le consentement éclairé ?
+      - Quelles sont les limites de l'anonymisation ?
+      - Comment équilibrer les avantages de la recherche avec la protection de la vie privée ?
+    </content>
+
+    <!-- Using contributors instead of authors -->
+    <contributor>
+      <name>Claire Leroy</name>
+      <email>claire.leroy@example.com</email>
+    </contributor>
+  </item>
+
+  <!-- Item 3: Event announcement -->
+  <item>
+    <guid>33333333-3333-3333-3333-333333333333</guid>
+    <title>Conférence annuelle sur les technologies émergentes</title>
+    <category term="Événement"/>
+    <category term="Conférence"/>
+    <published>2025-05-22T09:00:00+02:00</published>
+
+    <image type="JPEG" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Auditorium_-_University_of_Economics_in_Katowice.jpg/640px-Auditorium_-_University_of_Economics_in_Katowice.jpg" alt="Conférence Tech" length="23456"/>
+
+    <content type="html">
+      &lt;h2&gt;Conférence annuelle sur les technologies émergentes&lt;/h2&gt;
+      &lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; 15-17 juin 2025&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;Lieu:&lt;/strong&gt; Campus de Mont-Saint-Aignan, Université de Rouen&lt;/p&gt;
+      &lt;p&gt;Nous sommes heureux d'annoncer notre conférence annuelle sur les technologies émergentes. Cette année, nous nous concentrerons sur l'IA, la réalité virtuelle et l'informatique quantique.&lt;/p&gt;
+      &lt;p&gt;&lt;a href="https://example.com/conference/register"&gt;Inscrivez-vous maintenant&lt;/a&gt;&lt;/p&gt;
+    </content>
+
+    <author>
+      <name>Comité d'organisation</name>
+      <email>conference@example.com</email>
+      <uri>https://example.com/conference</uri>
+    </author>
+  </item>
+</feed>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Scientific Publications RSS25 Feed Example
+  This example demonstrates how to structure academic content in the RSS25 format.
+-->
+<feed xmlns="http://univ.fr/rss25" version="25" lang="fr">
+  <title>Publications scientifiques - Université de Rouen</title>
+  <pubDate>2025-05-25T14:30:00+02:00</pubDate>
+  <copyright>© 2025 Université de Rouen - Tous droits réservés</copyright>
+
+  <link rel="self" type="application/xml" href="https://univ-rouen.fr/publications/feed"/>
+  <link rel="alternate" type="text/html" href="https://univ-rouen.fr/publications"/>
+
+  <!-- Article scientifique avec DOI -->
+  <item>
+    <guid>a1b2c3d4-e5f6-7890-a1b2-c3d4e5f67890</guid>
+    <title>Analyse comparative des méthodes d'apprentissage profond pour la classification d'images médicales</title>
+
+    <category term="Informatique"/>
+    <category term="Intelligence Artificielle"/>
+    <category term="Médecine"/>
+    <category term="Imagerie médicale"/>
+
+    <published>2025-04-15T09:00:00+02:00</published>
+
+    <image type="PNG" href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Deep_learning_for_medical_applications.jpg/640px-Deep_learning_for_medical_applications.jpg" alt="Classification d'images médicales" length="45678"/>
+
+    <content type="html">
+      &lt;h1&gt;Analyse comparative des méthodes d'apprentissage profond pour la classification d'images médicales&lt;/h1&gt;
+
+      &lt;p&gt;&lt;strong&gt;Résumé:&lt;/strong&gt; Cette étude compare l'efficacité de différentes architectures de réseaux de neurones convolutifs (CNN) pour la classification d'images médicales, en particulier pour la détection précoce de pathologies pulmonaires. Nous avons évalué les performances de ResNet, DenseNet et EfficientNet sur un ensemble de données de radiographies thoraciques annotées.&lt;/p&gt;
+
+      &lt;p&gt;&lt;strong&gt;DOI:&lt;/strong&gt; &lt;a href="https://doi.org/10.1234/example.2025.0001"&gt;10.1234/example.2025.0001&lt;/a&gt;&lt;/p&gt;
+
+      &lt;h2&gt;Points clés:&lt;/h2&gt;
+      &lt;ul&gt;
+        &lt;li&gt;EfficientNet a montré les meilleures performances avec une précision de 94,7%&lt;/li&gt;
+        &lt;li&gt;L'augmentation des données a amélioré les résultats de 8% en moyenne&lt;/li&gt;
+        &lt;li&gt;L'interprétabilité des modèles reste un défi majeur pour l'adoption clinique&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;p&gt;Cette recherche a été financée par le programme de recherche en santé numérique de l'Université de Rouen.&lt;/p&gt;
+    </content>
+
+    <author>
+      <name>Dr. Marie Lambert</name>
+      <email>marie.lambert@univ-rouen.fr</email>
+      <uri>https://univ-rouen.fr/chercheurs/mlambert</uri>
+    </author>
+    <author>
+      <name>Prof. Alexandre Moreau</name>
+      <email>alexandre.moreau@univ-rouen.fr</email>
+      <uri>https://univ-rouen.fr/chercheurs/amoreau</uri>
+    </author>
+    <author>
+      <name>Dr. Julien Petit</name>
+      <email>julien.petit@univ-rouen.fr</email>
+      <uri>https://univ-rouen.fr/chercheurs/jpetit</uri>
+    </author>
+  </item>
+
+  <!-- Thèse de doctorat -->
+  <item>
+    <guid>b2c3d4e5-f6a7-8901-b2c3-d4e5f6a78901</guid>
+    <title>Développement de nouveaux catalyseurs pour la conversion électrochimique du CO2</title>
+
+    <category term="Chimie"/>
+    <category term="Électrochimie"/>
+    <category term="Développement durable"/>
+    <category term="Thèse"/>
+
+    <published>2025-03-20T14:00:00+01:00</published>
+
+    <content type="html">
+      &lt;h1&gt;Développement de nouveaux catalyseurs pour la conversion électrochimique du CO2&lt;/h1&gt;
+
+      &lt;p&gt;&lt;strong&gt;Résumé de thèse:&lt;/strong&gt; Cette thèse présente la synthèse et la caractérisation de nouveaux catalyseurs à base de métaux de transition pour la réduction électrochimique du CO2 en produits à valeur ajoutée. Les catalyseurs développés montrent une sélectivité améliorée pour la production d'éthylène et d'éthanol, avec une stabilité accrue dans des conditions opératoires industrielles.&lt;/p&gt;
+
+      &lt;p&gt;&lt;strong&gt;Directeur de thèse:&lt;/strong&gt; Prof. Catherine Durand&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;Laboratoire:&lt;/strong&gt; Laboratoire de Chimie Moléculaire et Matériaux (LCMM)&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;Date de soutenance:&lt;/strong&gt; 15 mars 2025&lt;/p&gt;
+
+      &lt;p&gt;Le manuscrit complet est disponible dans les archives ouvertes de l'université.&lt;/p&gt;
+    </content>
+
+    <author>
+      <name>Lucas Bertrand</name>
+      <email>lucas.bertrand@univ-rouen.fr</email>
+    </author>
+    <author>
+      <name>Prof. Catherine Durand</name>
+      <email>catherine.durand@univ-rouen.fr</email>
+      <uri>https://univ-rouen.fr/chercheurs/cdurand</uri>
+    </author>
+  </item>
+
+  <!-- Communication de conférence -->
+  <item>
+    <guid>c3d4e5f6-a7b8-9012-c3d4-e5f6a7b89012</guid>
+    <title>Modélisation des écoulements urbains pour l'amélioration de la qualité de l'air</title>
+
+    <category term="Génie civil"/>
+    <category term="Environnement"/>
+    <category term="Modélisation"/>
+    <category term="Conférence"/>
+
+    <published>2025-02-10T11:30:00+01:00</published>
+
+    <image type="JPEG" href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Downtown_Toronto_viewed_from_Harbour.jpg/640px-Downtown_Toronto_viewed_from_Harbour.jpg" alt="Modélisation des écoulements urbains" length="34567"/>
+
+    <content type="html">
+      &lt;h1&gt;Modélisation des écoulements urbains pour l'amélioration de la qualité de l'air&lt;/h1&gt;
+
+      &lt;p&gt;&lt;strong&gt;Présenté à:&lt;/strong&gt; 12ème Conférence Internationale sur la Qualité de l'Air Urbain (CIQA 2025)&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;Lieu:&lt;/strong&gt; Lyon, France&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; 5-7 février 2025&lt;/p&gt;
+
+      &lt;p&gt;Cette communication présente un nouveau modèle CFD (Computational Fluid Dynamics) pour simuler la dispersion des polluants dans les environnements urbains. Le modèle intègre des données météorologiques en temps réel et la géométrie 3D précise des bâtiments pour améliorer la précision des prévisions de qualité de l'air à l'échelle du quartier.&lt;/p&gt;
+
+      &lt;p&gt;Les résultats montrent que l'orientation des rues et la hauteur des bâtiments ont un impact significatif sur la concentration des polluants au niveau des piétons. Des recommandations pour l'aménagement urbain sont proposées sur la base de ces résultats.&lt;/p&gt;
+    </content>
+
+    <author>
+      <name>Dr. Nicolas Roux</name>
+      <email>nicolas.roux@univ-rouen.fr</email>
+      <uri>https://univ-rouen.fr/chercheurs/nroux</uri>
+    </author>
+    <author>
+      <name>Émilie Blanc</name>
+      <email>emilie.blanc@univ-rouen.fr</email>
+    </author>
+  </item>
+</feed>

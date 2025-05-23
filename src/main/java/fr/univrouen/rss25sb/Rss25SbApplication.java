@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Rss25SbApplication {
 
     public static void main(String[] args) {
-        System.getProperties().put("server.port", 8100);
+        System.getProperties().put("server.port", 4789);
         SpringApplication.run(Rss25SbApplication.class, args);
     }
 

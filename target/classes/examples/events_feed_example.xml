@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Cultural Events RSS25 Feed Example
+  This example demonstrates how to structure event information in the RSS25 format.
+-->
+<feed xmlns="http://univ.fr/rss25" version="25" lang="fr">
+  <title>Agenda culturel - Université de Rouen</title>
+  <pubDate>2025-05-25T16:00:00+02:00</pubDate>
+  <copyright>© 2025 Université de Rouen - Tous droits réservés</copyright>
+
+  <link rel="self" type="application/xml" href="https://univ-rouen.fr/culture/feed"/>
+  <link rel="alternate" type="text/html" href="https://univ-rouen.fr/culture/agenda"/>
+
+  <!-- Concert -->
+  <item>
+    <guid>d4e5f6a7-b8c9-0123-d4e5-f6a7b8c90123</guid>
+    <title>Concert de l'Orchestre Universitaire</title>
+
+    <category term="Culture"/>
+    <category term="Musique"/>
+    <category term="Concert"/>
+
+    <published>2025-06-10T08:00:00+02:00</published>
+
+    <image type="JPEG" href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Symphony_orchestra_-_Melbourne_Symphony_Orchestra.jpg/640px-Symphony_orchestra_-_Melbourne_Symphony_Orchestra.jpg" alt="Orchestre Universitaire" length="56789"/>
+
+    <content type="html">
+      &lt;h1&gt;Concert de l'Orchestre Universitaire&lt;/h1&gt;
+
+      &lt;div class="event-details"&gt;
+        &lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; 15 juin 2025 à 20h00&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Lieu:&lt;/strong&gt; Amphithéâtre Axelrad, Campus de Mont-Saint-Aignan&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Entrée:&lt;/strong&gt; Gratuite pour les étudiants, 5€ pour les personnels, 10€ pour le public extérieur&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;p&gt;L'Orchestre Universitaire de Rouen vous invite à son concert de fin d'année. Au programme : des œuvres de Mozart, Beethoven et Debussy, ainsi que des compositions originales d'étudiants du département de musique.&lt;/p&gt;
+
+      &lt;p&gt;Sous la direction de Marie Lefebvre, l'orchestre vous promet une soirée musicale exceptionnelle qui mettra en valeur le talent des musiciens de notre université.&lt;/p&gt;
+
+      &lt;p&gt;&lt;a href="https://univ-rouen.fr/culture/reservation"&gt;Réserver vos places&lt;/a&gt;&lt;/p&gt;
+    </content>
+
+    <author>
+      <name>Service Culturel</name>
+      <email>culture@univ-rouen.fr</email>
+      <uri>https://univ-rouen.fr/culture</uri>
+    </author>
+  </item>
+
+  <!-- Exposition -->
+  <item>
+    <guid>e5f6a7b8-c9d0-1234-e5f6-a7b8c9d01234</guid>
+    <title>Exposition : "Regards croisés sur l'environnement"</title>
+
+    <category term="Culture"/>
+    <category term="Art"/>
+    <category term="Exposition"/>
+    <category term="Environnement"/>
+
+    <published>2025-06-05T10:30:00+02:00</published>
+
+    <image type="PNG" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Art_gallery_of_Ontario.jpg/640px-Art_gallery_of_Ontario.jpg" alt="Exposition Environnement" length="67890"/>
+
+    <content type="html">
+      &lt;h1&gt;Exposition : "Regards croisés sur l'environnement"&lt;/h1&gt;
+
+      &lt;div class="event-details"&gt;
+        &lt;p&gt;&lt;strong&gt;Dates:&lt;/strong&gt; Du 20 juin au 15 juillet 2025&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Horaires:&lt;/strong&gt; Du lundi au vendredi de 10h à 18h, samedi de 14h à 17h&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Lieu:&lt;/strong&gt; Galerie de la Maison de l'Université&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Entrée:&lt;/strong&gt; Libre et gratuite&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;p&gt;Cette exposition présente le travail collaboratif d'étudiants en arts plastiques et en sciences de l'environnement. À travers photographies, installations et créations numériques, les artistes proposent une réflexion sur notre rapport à la nature et les défis environnementaux contemporains.&lt;/p&gt;
+
+      &lt;p&gt;Vernissage le 19 juin à 18h en présence des artistes.&lt;/p&gt;
+
+      &lt;p&gt;Visites guidées tous les mercredis à 14h.&lt;/p&gt;
+    </content>
+
+    <author>
+      <name>Département Arts Plastiques</name>
+      <email>arts@univ-rouen.fr</email>
+    </author>
+    <author>
+      <name>Laboratoire d'Écologie</name>
+      <email>ecologie@univ-rouen.fr</email>
+    </author>
+  </item>
+
+  <!-- Conférence -->
+  <item>
+    <guid>f6a7b8c9-d0e1-2345-f6a7-b8c9d0e12345</guid>
+    <title>Conférence : "L'intelligence artificielle et l'avenir du travail"</title>
+
+    <category term="Conférence"/>
+    <category term="Intelligence Artificielle"/>
+    <category term="Société"/>
+
+    <published>2025-06-01T09:15:00+02:00</published>
+
+    <content type="html">
+      &lt;h1&gt;Conférence : "L'intelligence artificielle et l'avenir du travail"&lt;/h1&gt;
+
+      &lt;div class="event-details"&gt;
+        &lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; 25 juin 2025 à 18h30&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Lieu:&lt;/strong&gt; Amphithéâtre Germaine Tillion, UFR Lettres&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Intervenant:&lt;/strong&gt; Prof. Jean-Marc Dupont, Chaire d'Éthique Numérique&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;p&gt;Dans le cadre du cycle de conférences "Technologies et Société", nous avons le plaisir d'accueillir le Professeur Jean-Marc Dupont pour une réflexion sur les impacts de l'intelligence artificielle sur le monde du travail.&lt;/p&gt;
+
+      &lt;p&gt;La conférence abordera les questions suivantes :&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Quels métiers seront transformés par l'IA dans les prochaines années ?&lt;/li&gt;
+        &lt;li&gt;Comment préparer les étudiants aux compétences de demain ?&lt;/li&gt;
+        &lt;li&gt;Quels enjeux éthiques et sociaux soulève cette transformation ?&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;p&gt;La conférence sera suivie d'un débat avec le public et d'un cocktail.&lt;/p&gt;
+
+      &lt;p&gt;Inscription recommandée : &lt;a href="https://univ-rouen.fr/conferences/inscription"&gt;Formulaire d'inscription&lt;/a&gt;&lt;/p&gt;
+    </content>
+
+    <author>
+      <name>Mission Culture Scientifique</name>
+      <email>culture-scientifique@univ-rouen.fr</email>
+      <uri>https://univ-rouen.fr/culture-scientifique</uri>
+    </author>
+  </item>
+</feed>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://univ.fr/rss25" version="25" lang="fr">
+  <title>Exemple avec des images réelles</title>
+  <pubDate>2025-05-25T12:00:00+02:00</pubDate>
+  <copyright>© 2025 Université de Rouen - Tous droits réservés</copyright>
+  
+  <link rel="self" type="application/xml" href="https://example.com/feeds/main"/>
+  <link rel="alternate" type="text/html" href="https://example.com/news"/>
+  
+  <!-- Item avec une image réelle -->
+  <item>
+    <guid>12345678-1234-1234-1234-123456789012</guid>
+    <title>Article avec une image réelle</title>
+    <category term="Exemple"/>
+    <category term="Image"/>
+    <published>2025-05-24T10:15:00+02:00</published>
+    
+    <!-- Image réelle accessible publiquement -->
+    <image type="PNG" href="https://www.choisirlanormandie.fr/app/uploads/2024/08/logo-universite-de-rouen.png" alt="Logo Université de Rouen" length="12345"/>
+    
+    <content type="html">
+      &lt;h1&gt;Article avec une image réelle&lt;/h1&gt;
+      &lt;p&gt;Cet article contient une image réelle qui est accessible publiquement. L'image est le logo de l'Université de Rouen.&lt;/p&gt;
+      &lt;p&gt;Les images doivent être accessibles pour être affichées correctement dans l'application.&lt;/p&gt;
+    </content>
+    
+    <author>
+      <name>Jean Dupont</name>
+      <email>jean.dupont@example.com</email>
+    </author>
+  </item>
+  
+  <!-- Item avec une autre image réelle -->
+  <item>
+    <guid>87654321-4321-4321-4321-210987654321</guid>
+    <title>Article avec une autre image réelle</title>
+    <category term="Exemple"/>
+    <category term="Image"/>
+    <published>2025-05-23T14:30:00+02:00</published>
+    
+    <!-- Autre image réelle accessible publiquement -->
+    <image type="JPEG" href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Rouen_Cathedral_as_seen_from_Gros_Horloge_140215_4.jpg/800px-Rouen_Cathedral_as_seen_from_Gros_Horloge_140215_4.jpg" alt="Cathédrale de Rouen" length="23456"/>
+    
+    <content type="html">
+      &lt;h1&gt;Article avec une autre image réelle&lt;/h1&gt;
+      &lt;p&gt;Cet article contient une autre image réelle qui est accessible publiquement. L'image est la Cathédrale de Rouen.&lt;/p&gt;
+      &lt;p&gt;Les images doivent être accessibles pour être affichées correctement dans l'application.&lt;/p&gt;
+    </content>
+    
+    <author>
+      <name>Marie Martin</name>
+      <email>marie.martin@example.com</email>
+    </author>
+  </item>
+</feed>

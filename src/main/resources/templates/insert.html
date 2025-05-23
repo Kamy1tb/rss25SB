@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertion de Flux RSS - Service REST RSS25</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .form-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        
+        textarea {
+            width: 100%;
+            min-height: 300px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+            margin-bottom: 15px;
+            resize: vertical;
+        }
+        
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #45a049;
+        }
+        
+        .btn-secondary {
+            background-color: #f44336;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #d32f2f;
+        }
+        
+        .response {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .success {
+            background-color: #dff0d8;
+            border: 1px solid #d6e9c6;
+            color: #3c763d;
+        }
+        
+        .error {
+            background-color: #f2dede;
+            border: 1px solid #ebccd1;
+            color: #a94442;
+        }
+        
+        .xml-example {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 14px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <ul>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/rss25SB/resume/xml">Xml</a></li>
+        <li><a href="/rss25SB/resume/html">Html</a></li>
+        <li><a href="/insert">Insertion</a></li>
+        <li><a href="/help">Help</a></li>
+    </ul>
+</nav>
+
+<!-- Contenu principal -->
+<div class="container">
+    <h1>Insertion de Flux RSS</h1>
+    
+    <div class="form-container">
+        <h2>Entrez votre flux XML RSS25</h2>
+        
+        <div class="xml-example">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;feed xmlns="http://univ.fr/rss25" lang="fr" version="25"&gt;
+  &lt;title&gt;Titre du flux&lt;/title&gt;
+  &lt;pubDate&gt;2025-05-23T12:00:00Z&lt;/pubDate&gt;
+  &lt;copyright&gt;© 2025 Université de Rouen&lt;/copyright&gt;
+  &lt;link rel="self" href="https://example.com/feed" /&gt;
+  &lt;item&gt;
+    &lt;guid&gt;https://example.com/article/1&lt;/guid&gt;
+    &lt;title&gt;Titre de l'article&lt;/title&gt;
+    &lt;published&gt;2025-05-23T10:00:00Z&lt;/published&gt;
+    &lt;content type="text"&gt;Contenu de l'article...&lt;/content&gt;
+  &lt;/item&gt;
+&lt;/feed&gt;
+        </div>
+        
+        <form id="xmlForm">
+            <textarea id="xmlContent" placeholder="Collez votre XML ici..."></textarea>
+            <button type="submit" class="btn">Envoyer</button>
+            <button type="button" class="btn btn-secondary" id="clearBtn">Effacer</button>
+        </form>
+        
+        <div id="response" class="response">
+            <h3 id="responseTitle">Résultat</h3>
+            <p id="responseMessage"></p>
+            <pre id="responseDetails"></pre>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Service REST RSS25. Tous droits réservés.</p>
+    </footer>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('xmlForm');
+        const clearBtn = document.getElementById('clearBtn');
+        const xmlContent = document.getElementById('xmlContent');
+        const response = document.getElementById('response');
+        const responseTitle = document.getElementById('responseTitle');
+        const responseMessage = document.getElementById('responseMessage');
+        const responseDetails = document.getElementById('responseDetails');
+        
+        // Handle form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const xml = xmlContent.value.trim();
+            if (!xml) {
+                showError('Erreur', 'Veuillez entrer un contenu XML.');
+                return;
+            }
+            
+            // Send XML to server
+            fetch('/rss25SB/insert', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/xml'
+                },
+                body: xml
+            })
+            .then(res => res.text())
+            .then(data => {
+                // Parse XML response
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(data, 'text/xml');
+                
+                const status = xmlDoc.getElementsByTagName('status')[0]?.textContent;
+                
+                if (status === 'INSERTED') {
+                    const id = xmlDoc.getElementsByTagName('id')[0]?.textContent;
+                    showSuccess('Succès', `Le flux a été inséré avec succès.`, `ID de l'article: ${id}`);
+                } else {
+                    const message = xmlDoc.getElementsByTagName('message')[0]?.textContent || 'Une erreur est survenue.';
+                    showError('Erreur', message);
+                }
+            })
+            .catch(err => {
+                showError('Erreur', 'Une erreur est survenue lors de la communication avec le serveur.', err.toString());
+            });
+        });
+        
+        // Clear form
+        clearBtn.addEventListener('click', function() {
+            xmlContent.value = '';
+            response.style.display = 'none';
+        });
+        
+        // Helper functions
+        function showSuccess(title, message, details = '') {
+            responseTitle.textContent = title;
+            responseMessage.textContent = message;
+            responseDetails.textContent = details;
+            response.className = 'response success';
+            response.style.display = 'block';
+        }
+        
+        function showError(title, message, details = '') {
+            responseTitle.textContent = title;
+            responseMessage.textContent = message;
+            responseDetails.textContent = details;
+            response.className = 'response error';
+            response.style.display = 'block';
+        }
+    });
+</script>
+
+</body>
+</html>

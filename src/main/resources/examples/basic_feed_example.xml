@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Basic RSS25 Feed Example
+  This example contains the minimum required elements and attributes for a valid RSS25 feed.
+-->
+<feed xmlns="http://univ.fr/rss25" version="25" lang="fr">
+  <!-- Required feed elements -->
+  <title>Exemple de flux RSS25 basique</title>
+  <pubDate>2025-05-25T10:00:00Z</pubDate>
+  <copyright>© 2025 Université de Rouen</copyright>
+  
+  <!-- At least one link is required -->
+  <link rel="self" type="application/xml" href="https://example.com/feed"/>
+  
+  <!-- At least one item is required (up to 10 maximum) -->
+  <item>
+    <!-- Required item elements -->
+    <guid>12345678-1234-1234-1234-123456789012</guid>
+    <title>Premier article d'exemple</title>
+    
+    <!-- At least one category is required -->
+    <category term="Exemple"/>
+    
+    <!-- Either published or updated date is required -->
+    <published>2025-05-24T14:30:00Z</published>
+    
+    <!-- Content is required with type attribute -->
+    <content type="text">Ceci est le contenu de l'article d'exemple. Il peut contenir du texte simple.</content>
+    
+    <!-- Either author or contributor is required -->
+    <author>
+      <name>Jean Dupont</name>
+    </author>
+  </item>
+</feed>
