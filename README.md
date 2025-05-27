@@ -134,28 +134,14 @@ Tous les flux XML sont validés selon le schéma XSD défini dans `src/main/reso
 Les transformations XSLT sont utilisées pour convertir les données XML en HTML pour l'affichage dans le navigateur.
 
 ## Déploiement
-L'application peut être déployée sur n'importe quel serveur compatible avec les applications Spring Boot :
+L'application est deployée sur clevercloud  sur l'adresse https://app-c0747a97-a16e-4436-9c1b-0513dcea03ca.cleverapps.io/
 
-### Création d'un fichier JAR exécutable
-```bash
-mvn clean package
-```
+Veuillez noter que l'application est à but pédagogique et que pour la lancer veuillez contacter un des contributeurs sur leurs adresses mail
 
-### Exécution du JAR
-```bash
-java -jar target/rss25SB-0.0.1-SNAPSHOT.jar
-```
-
-## Tests
-Pour exécuter les tests unitaires :
-
-```bash
-mvn test
-```
 
 ## Contributeurs
-- Kamyl Taibi
-- Raid Berrahal
+- Kamyl Taibi  (kamyl.taibi@univ-rouen.fr)
+- Raid Berrahal (raid.berrahal@univ-rouen.fr)
 
 ## Licence
-Ce projet est développé dans le cadre d'un cours à l'Université de Rouen.
+Ce projet est développé dans le cadre d'un cours XML à l'Université de Rouen.
