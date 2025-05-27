@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aide - Service REST RSS25</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .endpoint {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+        .endpoint h2 {
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .endpoint-details {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .endpoint-details dt {
+            font-weight: bold;
+            color: #555;
+        }
+        .endpoint-details dd {
+            margin-left: 0;
+        }
+        .description {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 4px;
+            border-left: 4px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <ul>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/rss25SB/resume/xml">Xml</a></li>
+        <li><a href="/rss25SB/resume/html">Html</a></li>
+        <li><a href="/insert">Insertion</a></li>
+        <li><a href="/items">Articles</a></li>
+        <li><a href="/help">Help</a></li>
+    </ul>
+</nav>
+
+<!-- Contenu principal -->
+<div class="container">
+    <h1>Documentation du Service REST RSS25</h1>
+
+    <p>Cette page présente les différentes opérations disponibles dans le service REST RSS25.</p>
+
+    <div th:each="endpoint : ${endpoints}" class="endpoint">
+        <h2 th:text="${endpoint.url}">URL</h2>
+
+        <dl class="endpoint-details">
+            <dt>Méthode</dt>
+            <dd th:text="${endpoint.method}">GET</dd>
+
+            <dt>Opération</dt>
+            <dd th:text="${endpoint.operation}">Description de l'opération</dd>
+
+            <dt>Format de retour</dt>
+            <dd th:text="${endpoint.return}">Format de retour</dd>
+        </dl>
+
+        <div class="description" th:utext="${endpoint.description}">
+            Description détaillée de l'endpoint...
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Service REST RSS25. Tous droits réservés.</p>
+    </footer>
+</div>
+
+</body>
+</html>

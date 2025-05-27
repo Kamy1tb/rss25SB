@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * Controller for RSS-related endpoints
+ * Contrôleur pour les points de terminaison liés aux flux RSS
  */
 @Controller
 @RequestMapping("/rss25SB")
@@ -47,8 +47,8 @@ public class RssController {
     }
 
     /**
-     * Get a list of all feeds in XML format
-     * @return XML representation of all feeds
+     * Récupère la liste de tous les flux au format XML
+     * @return Représentation XML de tous les flux
      */
     @GetMapping(value = "/resume/xml", produces = MediaType.APPLICATION_XML_VALUE)
     @ResponseBody
@@ -56,21 +56,21 @@ public class RssController {
         try {
             List<Feed> feeds = feedService.findAll();
 
-            // Create a wrapper XML element to contain all feeds
+            // Créer un élément XML enveloppant pour contenir tous les flux
             StringBuilder xml = new StringBuilder("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
             xml.append("<feeds xmlns=\"http://univ.fr/rss25\">\n");
 
             for (Feed feed : feeds) {
-                // Marshal each feed to XML using JAXB
+                // Convertir chaque flux en XML en utilisant JAXB
                 JAXBContext context = JAXBContext.newInstance(Feed.class);
                 Marshaller marshaller = context.createMarshaller();
                 marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-                marshaller.setProperty(Marshaller.JAXB_FRAGMENT, true); // Don't include XML declaration
+                marshaller.setProperty(Marshaller.JAXB_FRAGMENT, true); // Ne pas inclure la déclaration XML
 
                 StringWriter writer = new StringWriter();
                 marshaller.marshal(feed, writer);
 
-                // Append the feed XML to the result
+                // Ajouter le XML du flux au résultat
                 xml.append(writer.toString()).append("\n");
             }
 
@@ -82,8 +82,8 @@ public class RssController {
     }
 
     /**
-     * Get a list of all items in HTML format
-     * @return HTML representation of all items
+     * Récupère la liste de tous les articles au format HTML
+     * @return Représentation HTML de tous les articles
      */
     @GetMapping(value = "/resume/html", produces = MediaType.TEXT_HTML_VALUE)
     @ResponseBody
@@ -97,9 +97,9 @@ public class RssController {
     }
 
     /**
-     * Get a specific item by ID in XML format
-     * @param id the ID of the item to retrieve
-     * @return XML representation of the item
+     * Récupère un article spécifique par son ID au format XML
+     * @param id l'ID de l'article à récupérer
+     * @return Représentation XML de l'article
      */
     @GetMapping(value = "/resume/xml/{id}", produces = MediaType.APPLICATION_XML_VALUE)
     @ResponseBody
@@ -125,9 +125,9 @@ public class RssController {
     }
 
     /**
-     * Get a specific item by ID in HTML format
-     * @param id the ID of the item to retrieve
-     * @return HTML representation of the item
+     * Récupère un article spécifique par son ID au format HTML
+     * @param id l'ID de l'article à récupérer
+     * @return Représentation HTML de l'article
      */
     @GetMapping(value = "/html/{id}", produces = MediaType.TEXT_HTML_VALUE)
     @ResponseBody
@@ -161,9 +161,9 @@ public class RssController {
     }
 
     /**
-     * Get a specific item by GUID in HTML format
-     * @param guid the GUID of the item to retrieve
-     * @return HTML representation of the item
+     * Récupère un article spécifique par son GUID au format HTML
+     * @param guid le GUID de l'article à récupérer
+     * @return Représentation HTML de l'article
      */
     @GetMapping(value = "/html/guid/{guid}", produces = MediaType.TEXT_HTML_VALUE)
     @ResponseBody
@@ -197,9 +197,9 @@ public class RssController {
     }
 
     /**
-     * Add a new feed
-     * @param xml the XML representation of the feed to add
-     * @return XML response indicating success or failure
+     * Ajoute un nouveau flux
+     * @param xml la représentation XML du flux à ajouter
+     * @return Réponse XML indiquant le succès ou l'échec
      */
     @PostMapping(value = "/insert", consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
     @ResponseBody
@@ -242,9 +242,9 @@ public class RssController {
     }
 
     /**
-     * Delete an item by ID
-     * @param id the ID of the item to delete
-     * @return XML response indicating success or failure
+     * Supprime un article par son ID
+     * @param id l'ID de l'article à supprimer
+     * @return Réponse XML indiquant le succès ou l'échec
      */
     @DeleteMapping(value = "/delete/{id}", produces = MediaType.APPLICATION_XML_VALUE)
     @ResponseBody
@@ -279,10 +279,10 @@ public class RssController {
     }
 
     /**
-     * Create an error XML response
-     * @param status the error status
-     * @param message the error message
-     * @return XML representation of the error
+     * Crée une réponse XML d'erreur
+     * @param status le statut d'erreur
+     * @param message le message d'erreur
+     * @return Représentation XML de l'erreur
      */
     private String createErrorXml(String status, String message) {
         return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +

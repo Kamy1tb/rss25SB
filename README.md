@@ -1,141 +1,161 @@
-# RSS25SB - Spring Boot RSS Application
+# RSS25SB - Application Spring Boot pour RSS
 
-## Overview
-RSS25SB is a Spring Boot application for managing RSS feeds. It provides REST endpoints for retrieving and managing RSS data according to the RSS25 specification, with PostgreSQL database integration for persistent storage.
+## Présentation
+RSS25SB est une application Spring Boot pour la gestion des flux RSS. Elle fournit des points de terminaison REST pour récupérer et gérer les données RSS selon la spécification RSS25, avec une intégration à une base de données PostgreSQL pour la persistance. L'application est conçue comme une Single Page Application (SPA) pour une expérience utilisateur fluide.
 
-## Features
-- REST API for RSS feed management
-- XML and HTML representations of RSS feeds
-- PostgreSQL database integration
-- MVC architecture
-- Thymeleaf templates for web views
-- XSLT transformations for HTML rendering
-- XML validation against XSD schema
+## Fonctionnalités
+- API REST pour la gestion des flux RSS
+- Représentations XML et HTML des flux RSS
+- Intégration avec PostgreSQL
+- Architecture SPA (Single Page Application)
+- Architecture MVC côté serveur
+- Templates Thymeleaf pour les vues web
+- Transformations XSLT pour le rendu HTML
+- Validation XML selon un schéma XSD
+- Navigation sans rechargement de page
+- Conversion de flux RSS externes au format RSS25
 
-## Prerequisites
-- Java Development Kit (JDK) 21 or later
-- Maven 3.8.0 or later (or use the included Maven wrapper)
-- Git (for cloning the repository)
-- PostgreSQL (for local development, optional)
+## Architecture
+L'application est structurée selon le modèle MVC (Modèle-Vue-Contrôleur) :
+- **Modèles** : Classes Java représentant les entités de données (Feed, Item, Author, etc.)
+- **Vues** : Templates Thymeleaf pour le rendu HTML
+- **Contrôleurs** : Classes Java gérant les requêtes HTTP et la logique métier
 
-## Getting Started
+L'interface utilisateur est implémentée comme une SPA (Single Page Application) utilisant JavaScript pour la navigation et les interactions sans rechargement de page.
 
-### Cloning the Repository
+## Prérequis
+- Kit de Développement Java (JDK) 21 ou version supérieure
+- Maven 3.8.0 ou version supérieure (ou utiliser le wrapper Maven inclus)
+- Git (pour cloner le dépôt)
+- PostgreSQL (optionnel pour le développement local)
+
+## Démarrage
+
+### Cloner le dépôt
 ```bash
-git clone https://github.com/yourusername/rss25SB.git
+git clone https://github.com/votrenomdutilisateur/rss25SB.git
 cd rss25SB
 ```
 
-### Building the Project
+### Compiler le projet
 ```bash
-# Using Maven
+# Avec Maven
 mvn clean package
 
-# Using Maven Wrapper (Windows)
+# Avec Maven Wrapper (Windows)
 mvnw.cmd clean package
 
-# Using Maven Wrapper (Linux/Mac)
+# Avec Maven Wrapper (Linux/Mac)
 ./mvnw clean package
 ```
 
-### Running the Application Locally
+### Exécuter l'application localement
 ```bash
-# Using Maven
+# Avec Maven
 mvn spring-boot:run
 
-# Using Maven Wrapper (Windows)
+# Avec Maven Wrapper (Windows)
 mvnw.cmd spring-boot:run
 
-# Using Maven Wrapper (Linux/Mac)
+# Avec Maven Wrapper (Linux/Mac)
 ./mvnw spring-boot:run
 ```
 
-The application will start on port 8113 by default. You can access it at http://localhost:8113
+L'application démarrera sur le port 8080 par défaut. Vous pouvez y accéder à l'adresse http://localhost:8080
 
-### Running with a JAR file
-After building the project, you can run the generated JAR file:
-```bash
-java -jar target/rss25server.war
-```
+## Configuration de la base de données
+Par défaut, l'application est configurée pour se connecter à une base de données PostgreSQL. Les paramètres de connexion sont définis dans le fichier `application.properties`.
 
-### Database Configuration
-By default, the application is configured to connect to a PostgreSQL database hosted on Clever Cloud. For local development, you can modify the `application.properties` file to use a local database:
+Pour le développement local, vous pouvez modifier ces paramètres pour utiliser votre propre base de données :
 
 ```properties
-# Local PostgreSQL Configuration
+# Configuration PostgreSQL Locale
 spring.datasource.url=jdbc:postgresql://localhost:5432/rss25sb
 spring.datasource.username=postgres
-spring.datasource.password=yourpassword
+spring.datasource.password=votremotdepasse
 ```
 
-The current configuration connects to a PostgreSQL database hosted on Clever Cloud with the following details:
+## Structure du projet
+```
+src/
+├── main/
+│   ├── java/
+│   │   └── fr/
+│   │       └── univrouen/
+│   │           └── rss25sb/
+│   │               ├── controllers/    # Contrôleurs REST
+│   │               ├── model/          # Modèles de données
+│   │               ├── repository/     # Interfaces de persistance
+│   │               ├── service/        # Services métier
+│   │               └── util/           # Classes utilitaires
+│   └── resources/
+│       ├── static/                     # Ressources statiques (CSS, JS)
+│       ├── templates/                  # Templates Thymeleaf
+│       ├── schemas/                    # Schémas XSD
+│       └── xslt/                       # Transformations XSLT
+└── test/
+    └── java/                           # Tests unitaires
+```
 
-- Host: ba1y0qcdswqdset2rdhm-postgresql.services.clever-cloud.com
-- Port: 50013
-- Database: ba1y0qcdswqdset2rdhm
-- Username: umaxwzxujzbl78pzixfk
+## Points de terminaison API
+L'application expose plusieurs points de terminaison REST :
 
-## Deployed Application
-The application is deployed on Clever Cloud and can be accessed at:
+### Gestion des flux RSS
+- `GET /rss25SB/resume/xml` - Obtenir la liste de tous les flux au format XML
+- `GET /rss25SB/resume/xml?format=raw` - Obtenir la liste de tous les flux au format XML brut
+- `GET /rss25SB/resume/html` - Obtenir la liste de tous les flux au format HTML
+- `GET /rss25SB/resume/xml/{id}` - Obtenir un article spécifique par ID au format XML
+- `GET /rss25SB/html/{id}` - Obtenir un article spécifique par ID au format HTML
+- `GET /rss25SB/html/guid/{guid}` - Obtenir un article spécifique par GUID au format HTML
+- `POST /rss25SB/insert` - Ajouter un nouveau flux (format XML)
+- `DELETE /rss25SB/delete/{id}` - Supprimer un article par ID
 
-**URL**: https://app-ba1y0qcdswqdset2rdhm.cleverapps.io
+### Pages Web
+- `GET /` - Page d'accueil
+- `GET /convert` - Interface de conversion de flux
+- `GET /insert` - Interface d'insertion de flux
+- `GET /transfer` - Interface de transfert de fichiers
+- `GET /items` - Liste des articles
+- `GET /help` - Documentation de l'API
 
-### Accessing the Deployed Application
-1. Open your web browser and navigate to https://app-ba1y0qcdswqdset2rdhm.cleverapps.io
-2. You'll see the home page with information about the project
-3. Use the navigation menu to access different features:
-   - **Accueil**: Home page
-   - **Xml**: View all feeds in XML format
-   - **Html**: View all feeds in HTML format
-   - **Insertion**: Add a new feed
-   - **Articles**: View and manage articles
-   - **Help**: View API documentation
+## Fonctionnalités détaillées
 
-## REST API Endpoints
-The application provides the following REST endpoints:
+### Conversion de flux
+L'application permet de convertir des flux RSS externes au format RSS25 :
+- Conversion depuis Le Monde - International
+- Conversion depuis Fonction Publique - Actualités
+- Validation automatique selon le schéma XSD
+- Génération de GUIDs uniques pour les articles
 
-### Main Pages
-- `GET /` - Home page with project information
-- `GET /help` - Help page with API documentation
-- `GET /insert` - Page for inserting new feeds
-- `GET /items` - Page for viewing and managing articles
+### Validation XML
+Tous les flux XML sont validés selon le schéma XSD défini dans `src/main/resources/schemas/rss25.tp1.xsd`.
 
-### RSS Feed Management
-- `GET /rss25SB/resume/xml` - Get a list of all feeds in XML format
-- `GET /rss25SB/resume/html` - Get a list of all feeds in HTML format
-- `GET /rss25SB/resume/xml/{id}` - Get a specific article by ID in XML format
-- `GET /rss25SB/html/{id}` - Get a specific article by ID in HTML format
-- `GET /rss25SB/html/guid/{guid}` - Get a specific article by GUID in HTML format
-- `POST /rss25SB/insert` - Add a new feed (XML format)
-- `DELETE /rss25SB/delete/{id}` - Delete an article by ID
+### Transformations XSLT
+Les transformations XSLT sont utilisées pour convertir les données XML en HTML pour l'affichage dans le navigateur.
 
-## Project Structure
-The project follows the MVC (Model-View-Controller) pattern:
+## Déploiement
+L'application peut être déployée sur n'importe quel serveur compatible avec les applications Spring Boot :
 
-- **Models**: Located in `fr.univrouen.rss25sb.model`
-- **Views**: Thymeleaf templates in `src/main/resources/templates`
-- **Controllers**: Located in `fr.univrouen.rss25sb.controllers`
-- **Services**: Located in `fr.univrouen.rss25sb.service`
-- **Repositories**: Located in `fr.univrouen.rss25sb.repository`
-- **Utilities**: Located in `fr.univrouen.rss25sb.util`
+### Création d'un fichier JAR exécutable
+```bash
+mvn clean package
+```
 
-## Example XML Feeds
-The project includes example XML feeds in the `src/main/resources/examples` directory:
-- `basic_feed_example.xml` - A minimal example with required elements
-- `complex_feed_example.xml` - A comprehensive example with multiple items
-- `scientific_feed_example.xml` - An example for scientific publications
-- `events_feed_example.xml` - An example for cultural events
+### Exécution du JAR
+```bash
+java -jar target/rss25SB-0.0.1-SNAPSHOT.jar
+```
 
-## Running Tests
-To run the tests:
+## Tests
+Pour exécuter les tests unitaires :
 
 ```bash
-# Using Maven
 mvn test
-
-# Using Maven Wrapper (Windows)
-mvnw.cmd test
-
-# Using Maven Wrapper (Linux/Mac)
-./mvnw test
 ```
+
+## Contributeurs
+- Kamyl Taibi
+- Raid Berrahal
+
+## Licence
+Ce projet est développé dans le cadre d'un cours à l'Université de Rouen.

@@ -10,7 +10,7 @@ public class IndexController {
         // Ajoute des données au modèle
         model.addAttribute("projectName", "Projet XML RSS25");
         model.addAttribute("version", "1.0.0");
-        model.addAttribute("developer", "Kamyl Taibi");
+        model.addAttribute("developer", "Kamyl Taibi & Raid Berrahal");
         model.addAttribute("universityLogo", "https://www.choisirlanormandie.fr/app/uploads/2024/08/logo-universite-de-rouen.png");
         return "landing"; // Nom du fichier Thymeleaf (index.html)
     }

@@ -1,1 +1,3 @@
-fr/univrouen/rss25sb/Rss25SbApplicationTests.class
+fr\univrouen\rss25sb\service\FeedConverterService.class
+fr\univrouen\rss25sb\service\FeedConverterServiceTest.class
+fr\univrouen\rss25sb\Rss25SbApplicationTests.class
